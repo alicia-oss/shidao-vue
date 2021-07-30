@@ -32,7 +32,6 @@ export default {
 .card {
   box-sizing: border-box;
   display: flex;
-  border: 1px solid rgba(71, 68, 67, 0.2);
   background-color:white;
   width: 95%;
   height: 240px;
