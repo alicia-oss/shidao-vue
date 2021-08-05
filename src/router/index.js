@@ -13,6 +13,12 @@ const Login = () =>
     import ('views/login/Login.vue')
 const Profile = () =>
     import ('views/profile/Profile.vue')
+const Register = () =>
+    import ('views/register/Register.vue')
+const CreateClass = () =>
+    import ('../views/createClass/CreateClass.vue')
+
+
 Vue.use(VueRouter)
 
 const routes = [{
@@ -39,6 +45,14 @@ const routes = [{
         path: '/profile',
         component: Profile
     },
+    {
+        path: '/register',
+        component: Register
+    },
+    {
+        path: '/createclass',
+        component: CreateClass
+    }
 
 
 ]
@@ -52,8 +66,10 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 
     if (to.path === '/profile') {
-        console.log(from);
         if (store.state.login !== 1) next({ path: '/login' })
+        else {
+            next()
+        }
     } else next()
 })
 

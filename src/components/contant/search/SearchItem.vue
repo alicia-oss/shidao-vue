@@ -53,8 +53,11 @@ export default {
   height: 44px;
   width: 370px;
   font-size: var(--font-size-small);
+  box-shadow: none !important;
   outline: none;
 }
+
+
 
 .search-item .button {
  

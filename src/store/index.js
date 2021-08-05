@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        login: 1, //登录表示
+        login: 0, //登录表示
         userData: {
             userName: "测试store",
             userImg: "admin.jpg",

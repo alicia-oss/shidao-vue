@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import TeacherCard from 'components/contant/teacher/TeacherCard.vue'
+import TeacherCard from 'components/contant/user/TeacherCard.vue'
 export default {
   name: "RecommandTeacher",
   props:{

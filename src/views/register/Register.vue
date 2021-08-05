@@ -1,29 +1,40 @@
 <template>
-  <div>
-    <div class="navbar">
+<div>
+  <div class="navbar">
       <el-row>
         <el-col :span="20" :offset="2">
           <search-result-nav-bar class="bar" ></search-result-nav-bar>
         </el-col>
       </el-row>
-    </div>
-    <header-back pageName="个人中心"></header-back>
   </div>
+  <header-back pageName="注册"></header-back>
+  <div class="test">
+    <av-upload></av-upload>
+  </div>
+
+</div>
+  
 </template>
 
 <script>
-import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue';
-import HeaderBack from '../../components/contant/back/HeaderBack.vue'
+
+
+import HeaderBack from '../../components/contant/back/HeaderBack.vue';
+import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue'
+
 export default {
-  name: "Profile",
-  components: {
+  name: "Register",
+  components:{
+    HeaderBack,
     SearchResultNavBar,
-    HeaderBack
+    AvUpload
   }
+
 }
 </script>
 
 <style scoped>
+
 .navbar {
   height: 80px;
   width: 100%;
@@ -33,6 +44,4 @@ export default {
 .bar {
   margin-top: 10px;
 }
-
-
 </style>

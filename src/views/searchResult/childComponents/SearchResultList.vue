@@ -8,23 +8,25 @@
     <el-radio :label="3">时长升序</el-radio>
     <el-radio :label="4">时长降序</el-radio>
   </el-radio-group>
-   
     <big-class-card class="list-item" v-for="item in data.classList.list" :data="item"></big-class-card>
   </div>
   <div class="help-list" v-show="index === 1">求助列表</div>
-  <div class="user-list" v-show="index === 2">用户列表</div>
+  <div class="user-list" v-show="index === 2">
+    <user-card-one class="user-list-item" v-for="item in data.userList.list" :data="item"></user-card-one>
+  </div>
+  
 </div>
 
 </template>
 
 <script>
 import BigClassCard from '../../../components/contant/class/BigClassCard.vue'
+import UserCardOne from '../../../components/contant/user/UserCardOne.vue'
 export default {
   name: "SearchResultList",
   components: {
     BigClassCard,
-
-
+    UserCardOne
   },
   props:  {
     data: null,
@@ -49,5 +51,24 @@ export default {
 
 .class-list{
   margin-top: 30px;
+}
+
+.user-list {
+
+   display: flex;
+  display: -webkit-flex;
+   -webkit-justify-content: space-between;
+  justify-content: flex-start ;
+  -webkit-flex-wrap: flex-start ;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  width: 98%;
+}
+
+.user-list-item{
+  margin: 25px 0;
+  margin-right: 3%;
+  width: 22%;
+  height: 250px;
 }
 </style>

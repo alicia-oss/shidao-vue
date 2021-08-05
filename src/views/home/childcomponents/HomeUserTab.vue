@@ -1,7 +1,7 @@
 <template>
   <div :style="{color: fontColor}">
     <div class="tab" v-if="this.$store.state.login == 1">
-      <div class="item my-study"><router-link class="link" to="">个人中心</router-link></div>
+      <div class="item my-study"><router-link class="link" to="profile">个人中心</router-link></div>
       <div class="item "><router-link class="link" to=""><span class="message "><i class = "el-icon-bell"></i>消息&nbsp</span></router-link></div>
       <div class=" username" >
         <div class="username-txt">{{this.$store.state.userData.userName}}</div> 
@@ -11,8 +11,8 @@
     <div class="tab" v-if="this.$store.state.login == 0">
       <div class="username">
         <div class="login">
-          <router-link class="link" to="">登录&nbsp |</router-link>
-      <router-link class="link" to=""> &nbsp注册</router-link>
+          <router-link class="link" to="/login">登录&nbsp |</router-link>
+      <router-link class="link" to="/register"> &nbsp注册</router-link>
         </div>
       </div>
     </div>

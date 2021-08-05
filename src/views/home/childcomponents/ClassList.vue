@@ -2,7 +2,7 @@
 <div class="list">
   <div>
   <ul>
-    <li class="item " v-for="item in items" ><router-link  class="white" to=""><span class="link">{{item}}</span></router-link></li>
+    <li class="item " v-for="item in items" ><router-link  class="white" :to="{path:'/search',query:{keyword:item}}"><span class="link">{{item}}</span></router-link></li>
   </ul>
   </div>
 </div>

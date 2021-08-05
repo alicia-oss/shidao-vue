@@ -1,13 +1,26 @@
 <template>
-  <el-card class="card" :body-style="{ padding: '0px' }" shadow="hover">
+<div @click="ItemClick">
+
+ <el-card class="card" :body-style="{ padding: '0px' }" shadow="hover">
     <div class="img"><img :src="data.img" alt=""></div>
     <div class="txt">
       <div class="title">{{data.title}}</div>
-    <div class="username">{{data.username}}</div>
+    <div class="username">
+      {{data.username}}
+      <el-rate
+          v-model="data.score"
+          disabled
+          show-score
+          text-color="#ff9900"
+          :score-template="data.score.toString()">
+        </el-rate>
+    </div>
     <div class="money">{{price}}</div>
     </div>
     
   </el-card>
+</div>
+ 
 </template>
 
 <script>
@@ -15,15 +28,22 @@ export default {
   name: "ClassCard",
   props:{
     data:{
+      id:null,
       img:null,
       title:null,
       username:null,
-      money:null
+      money:null,
+      score:null
     }
   },
   computed: {
     price:function() {
       return "参考价格："+"$ "+this.data.money;
+    }
+  },
+  methods: {
+    ItemClick(){
+      this.$router.push({path:'/class',query:{class_id:this.data.id}})
     }
   }
 

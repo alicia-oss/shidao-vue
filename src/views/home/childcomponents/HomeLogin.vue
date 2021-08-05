@@ -19,7 +19,7 @@
       <img src="~assets/img/admin.jpg" alt="" srcset="">
     </div>
     <div>
-      <el-button type="success" plain class="button">登录/注册</el-button>
+      <el-button type="success" plain class="button" @click="LoginClick">登录/注册</el-button>
     </div>
   <div class="home-login" v-if="this.$store.state.login == 1">
    <div>
@@ -38,6 +38,11 @@
 <script>
 export default {
   name: "HomeLogin",
+  methods:{
+    LoginClick(){
+      this.$router.push("/login");
+    }
+  }
 }
 </script>
 

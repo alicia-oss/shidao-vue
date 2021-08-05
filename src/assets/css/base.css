@@ -1,9 +1,10 @@
 @import "./normalize.css";
 :root {
-    --color-text: #666;
+    --color-border: rgba(102, 102, 102, 0.4);
+    --color-text: rgb(102, 102, 102);
     --color-high-text: rgb(75, 175, 80);
     --color-tint: rgb(75, 175, 80);
-    --color-body: #f5f5f7;
+    --color-body: rgb(245, 245, 247);
     --color-background-one: rgb(237, 248, 238);
     --color-black: #1D1D1F;
     --color-background: rgb(245, 245, 245);
@@ -52,4 +53,29 @@ a {
 
 .right {
     float: right;
+}
+
+
+/* 正文字体样式 */
+
+.main-text {
+    font-size: var(--font-size);
+    text-indent: 2em;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+}
+
+input {
+    outline-style: none;
+    border: 1px solid rgba(102, 102, 102, 0.4);
+}
+
+input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(75, 175, 80, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(75, 175, 80, 0.6);
+    transition: -webkit-box-shadow 0.2s;
+    transition: box-shadow 0.2s;
+    transition-timing-function: ease-in-out;
 }

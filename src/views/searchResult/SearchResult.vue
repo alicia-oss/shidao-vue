@@ -7,26 +7,17 @@
         </el-col>
       </el-row>
     </div>
-    <div class="breadcrumb">
-      <el-row >
-          <el-col :span="20" :offset="2">
-            <el-breadcrumb class="contant" separator="/">
-              <el-breadcrumb-item  :to="{ path: '/home' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>搜索结果</el-breadcrumb-item>
-            </el-breadcrumb>
-          </el-col>
-      </el-row>
-      </div>
-        <el-row >
-          <el-col :span="14" :offset="2" class="list">
-            <div class="list-number">共<span class="number">{{listData.classList.number}}</span>条与<span class="number">{{keyWord}}</span>相关的结果</div>
-            <div class="tab"><search-result-tab @ItemClick = "TabClick"></search-result-tab></div>
-            <div class="list"><search-result-list :data="listData" :index="listTabIndex"></search-result-list></div>
-          </el-col>
-           <el-col :span="6" class="recommond">
-            <recommand-class :classes="recommandClasses"></recommand-class>
-          </el-col>
-        </el-row>
+    <header-back pageName="搜索结果"></header-back>
+    <el-row >
+      <el-col :span="14" :offset="2" class="list">
+        <div class="list-number">共<span class="number">{{listData.classList.number}}</span>条与<span class="number">{{keyWord}}</span>相关的结果</div>
+        <div class="tab"><search-result-tab @ItemClick = "TabClick"></search-result-tab></div>
+        <div class="list"><search-result-list :data="listData" :index="listTabIndex"></search-result-list></div>
+      </el-col>
+        <el-col :span="6" class="recommond">
+        <recommand-class :classes="recommandClasses"></recommand-class>
+      </el-col>
+    </el-row>
    
   </div>
 </template>
@@ -36,6 +27,7 @@ import SearchResultNavBar from './childComponents/SearchResultNavBar.vue';
 import SearchResultTab from './childComponents/SearchResultTab.vue';
 import SearchResultList from './childComponents/SearchResultList.vue';
 import RecommandClass from './childComponents/RecommandClass.vue';
+import HeaderBack from '../../components/contant/back/HeaderBack.vue'
 
 export default {
   name: "SearchResult",
@@ -53,81 +45,162 @@ export default {
         number: "30",
         list:[
           {
+            id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
             title: "西式烹饪工艺--土豆烧牛逼",
+            intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
-            teacherName: "大厨老八"
+            teacherName: "大厨老八",
+            score:3.9
           },
           {
+            id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
             title: "西式烹饪工艺--土豆烧牛逼",
+            intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
-            teacherName: "大厨王刚"
+            teacherName: "大厨王刚",
+            score:3.9
           },
           {
+            id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
             title: "西式烹饪工艺--土豆烧牛逼",
+            intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
-            teacherName: "大厨王刚"
+            teacherName: "大厨王刚",
+            score:3.9
           },
           {
+            id:"12",
             img:"https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
             title: "西式烹饪工艺--土豆烧牛逼",
+            intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
-            teacherName: "大厨王刚"
+            teacherName: "大厨王刚",
+            score:3.9
           },
           {
+            id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
             title: "西式烹饪工艺--土豆烧牛逼",
+            intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
-            teacherName: "大厨王刚"
+            teacherName: "大厨王刚",
+            score:3.9
           },
           ]
         },
         helpList: {
 
+        },
+        userList: {
+          number:"30",
+          list:[
+            {
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+            },
+            {
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+            },
+            {
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+            },
+            {
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+            },
+            {
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+            },
+            {
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+            },
+            {
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+            },
+          ]
         }
       } ,
       recommandClasses: [{
+        id:11,
           img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
           title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
           username:"中国大学mooc",
-          money:"99"
+          money:"99",
+          score:3.9
         },
         {
+          id:11,
           img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
           title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
           username:"中国大学mooc",
-          money:"99"
+          money:"99",
+          score:3.9
         },
         {
+          id:11,
           img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
           title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
           username:"中国大学mooc",
-          money:"99.00"
+          money:"99.00",
+          score:3.9
         },
         {
+          id:11,
           img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
           title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
           username:"中国大学mooc",
-          money:"99"
+          money:"99",
+          score:3.9
         },
         {
+          id:11,
           img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
           title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
           username:"中国大学mooc",
-          money:"99"
+          money:"99",
+          score:3.9
         },
          {
+           id:11,
           img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
           title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
           username:"中国大学mooc",
-          money:"99"
+          money:"99",
+          score:3.9
         }]
       } 
   },
@@ -135,7 +208,8 @@ export default {
     SearchResultNavBar,
     SearchResultTab,
     SearchResultList,
-    RecommandClass
+    RecommandClass,
+    HeaderBack
   },
   methods: {
     TabClick(index) {
@@ -160,18 +234,6 @@ export default {
   margin-top: 10px;
 }
 
-.breadcrumb {
-  height: 55px;
-  width: 100%;
-  background-color: white;
-
-}
-
-.breadcrumb .contant {
-
-line-height: 55px;
-    font-size: var(--font-size-big) ;
-}
 
 .list-number {
   height: 89px;
