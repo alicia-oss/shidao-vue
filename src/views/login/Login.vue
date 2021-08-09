@@ -9,10 +9,10 @@
     </div>
     <header-back pageName="登录"></header-back>
 
-     <el-row>
+     <el-row class="content">
         <el-col :span="13" :offset="2">
          <div>
-           szx
+           <img src="~assets/img/LoginBg.svg" alt="">
 
          </div>
         </el-col>
@@ -20,19 +20,22 @@
          <login-contant></login-contant>
         </el-col>
       </el-row>
+      <bottom></bottom>
   </div>
 </template>
 
 <script>
 import LoginContant from './chlidcomponents/LoginContant.vue';
 import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue';
-import HeaderBack from '../../components/contant/back/HeaderBack.vue'
+import HeaderBack from '../../components/contant/back/HeaderBack.vue';
+import Bottom from '../../components/contant/bottom/Bottom.vue'
 export default {
   name: "Login",
   components: {
     LoginContant,
     SearchResultNavBar,
-    HeaderBack
+    HeaderBack,
+    Bottom
   }
 
 
@@ -49,5 +52,14 @@ export default {
 
 .bar {
   margin-top: 10px;
+}
+
+img{
+  width: 90%;
+}
+
+.content{
+  margin-top: 45px;
+  margin-bottom: 45px;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <div ><label for="file" class="button">添加头像图片</label></div>
+  <div class="main">
     <input type="file" @change="picChange($event)" id='file' name="file" accept="image/png, image/jpg, image/jpeg, image/gif" hidden/>
     <div class="imgList">
-      <div class="img" v-if="imageUrl">
+      <div class="img">
         <img :src="imageUrl" alt="">
       </div>
     </div>
+    <div ><label for="file" class="button">点我添加头像</label></div>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  display: flex;
+}
 .img{
   height: 155px;
   width: 155px;
@@ -42,6 +45,8 @@ img{
 }
 
 .button{
+  display: block;
+  margin-left: 45px;
   color: var(--color-high-text);
 }
 

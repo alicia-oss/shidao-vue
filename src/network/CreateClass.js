@@ -12,9 +12,6 @@ export function submitForm(file) {
             'Content-Type': "multipart/form-data;boundary=----WebKitFormBoundaryn8D9asOnAnEU4Js0"
                 // "Content-Type": "multipart/form-data;"
         },
-        transformRequest: [function() {
-            return file;
-        }],
         data: {
             file: file
         }

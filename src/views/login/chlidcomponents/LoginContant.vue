@@ -5,7 +5,7 @@
     <div class="item" ><input class="useraccount" type="text" v-model="useraccount" placeholder="请输入账号"></input></div>
     <div class=" item"><input class="useraccount" type="password"  v-model="password" placeholder="请输入密码"></input></div>
     <div class="item"><el-button class="button" type="primary" plain><span style="font-size:var(--font-size-big)">登录</span></el-button></div>
-    <div class="item">没有账号？<router-link style="color:var(--color-high-text)" to="" >立即注册</router-link></div>
+    <div class="item">没有账号？<router-link style="color:var(--color-high-text)" to="/register" >立即注册</router-link></div>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
 .login{
   box-sizing: border-box;
   width: 100%;
-  margin-top: 20%;
+  margin-top: 45px;
   padding: 8% 15%;
   height: 60vh;
   background-color: white;

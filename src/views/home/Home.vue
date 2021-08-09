@@ -28,10 +28,10 @@
     </el-row>
     <el-row>
       <el-col :span="20" :offset="2">
-        <recommand-class :classes="RecommandClassData"></recommand-class>
+        <recommand-class :classes="RecommandClassData" ></recommand-class>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="bottom">
       <el-col>
 <bottom></bottom>
       </el-col>
@@ -49,7 +49,7 @@ import HomeSwiper from './childcomponents/HomeSwiper.vue';
 import HomeLogin from './childcomponents/HomeLogin.vue'
 import RecommandTeacher from './childcomponents/RecommandTeacher.vue'
 import RecommandClass from './childcomponents/RecommandClass.vue';
-import Bottom from './childcomponents/Bottom.vue'
+import Bottom from '../../components/contant/bottom/Bottom.vue'
 
 export default {
   name: 'Home',
@@ -65,10 +65,6 @@ export default {
   },
   data() {
     return {
-      NavBarData: {
-        username:"测试用户名",
-        userImg:"admin.jpg"
-      },
       ClassListData:["Java","web","视觉设计","绘图","机械设计"],
       HomeSwiperData:["https://edu-image.nosdn.127.net/a13f3f4f15f343668eceab7ea9bb6c02.png?imageView&quality=100",
       "https://edu-image.nosdn.127.net/aeeb2dd73fac4523b3c79ec99eeec1ec.png?imageView&quality=100",
@@ -114,7 +110,8 @@ export default {
       domin:"领域",
       classes:"设计风格大揭秘：【MBE风格设计技巧讲解】"
         }],
-      RecommandClassData:[{
+      RecommandClassData:[
+        {
           id:11,
           img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
           title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
@@ -174,5 +171,8 @@ export default {
   background-color:white;
 }
 
+.bottom{
+  margin-top: 70px;
+}
    
 </style>

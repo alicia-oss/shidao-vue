@@ -17,7 +17,16 @@ const Register = () =>
     import ('views/register/Register.vue')
 const CreateClass = () =>
     import ('../views/createClass/CreateClass.vue')
-
+const ProfileMyClass = () =>
+    import ('../views/profile/childComponents/ProfileMyClass.vue')
+const ProfileMyHelp = () =>
+    import ('../views/profile/childComponents/ProfileMyHelp.vue')
+const ProfileMyStudy = () =>
+    import ('../views/profile/childComponents/ProfileMyStudy.vue')
+const ProfileMyOrder = () =>
+    import ('../views/profile/childComponents/ProfileMyOrder.vue')
+const ProfileMyInfo = () =>
+    import ('../views/profile/childComponents/ProfileMyInfo.vue')
 
 Vue.use(VueRouter)
 
@@ -27,23 +36,57 @@ const routes = [{
     },
     {
         path: '/home',
-        component: Home
+        component: Home,
+        meta: { requireAuth: false }
     },
     {
         path: '/search',
-        component: SearchResult
+        component: SearchResult,
+        meta: { requireAuth: false }
     },
     {
         path: '/class',
-        component: ClassDetail
+        component: ClassDetail,
+        meta: { requireAuth: false }
     },
     {
         path: '/login',
-        component: Login
+        component: Login,
+        meta: { requireAuth: false }
     },
     {
         path: '/profile',
-        component: Profile
+        component: Profile,
+        children: [{
+                path: 'info',
+                component: ProfileMyInfo,
+                meta: { active: "info", requireAuth: true }
+            },
+            {
+                path: 'study',
+                component: ProfileMyStudy,
+                meta: { active: "study", requireAuth: true }
+            },
+            {
+                path: 'class',
+                component: ProfileMyClass,
+                meta: { active: "class", requireAuth: true }
+            },
+            {
+                path: 'help',
+                component: ProfileMyHelp,
+                meta: { active: "help", requireAuth: true }
+            },
+            {
+                path: 'order',
+                component: ProfileMyOrder,
+                meta: { active: "order", requireAuth: true }
+            },
+            {
+                path: '',
+                redirect: 'info'
+            }
+        ]
     },
     {
         path: '/register',
@@ -64,8 +107,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-
-    if (to.path === '/profile') {
+    if (to.meta.requireAuth == true) {
         if (store.state.login !== 1) next({ path: '/login' })
         else {
             next()

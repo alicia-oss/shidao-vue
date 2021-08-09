@@ -19,7 +19,7 @@ export default {
 <style scoped>
 
 .bottom {
-  margin-top: 100px;
+
   padding: 60px 140px;
   width: 100%;
   height: 200px;

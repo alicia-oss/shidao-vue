@@ -8,9 +8,16 @@
       </el-row>
   </div>
   <header-back pageName="注册"></header-back>
-  <div class="test">
-    <av-upload></av-upload>
-  </div>
+  <el-row>
+    <el-col :span="15" :offset="2">
+      <register-form></register-form>
+
+    </el-col>
+    <el-col :span="5">
+      <sider></sider>
+
+    </el-col>
+  </el-row>
 
 </div>
   
@@ -20,14 +27,22 @@
 
 
 import HeaderBack from '../../components/contant/back/HeaderBack.vue';
-import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue'
+import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue';
+import RegisterForm from './childComponents/RegisterForm.vue';
+import Sider from './childComponents/Sider.vue'
 
 export default {
   name: "Register",
   components:{
     HeaderBack,
     SearchResultNavBar,
-    AvUpload
+    RegisterForm,
+    Sider
+
+  },
+
+  methods:{
+
   }
 
 }

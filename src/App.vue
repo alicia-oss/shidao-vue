@@ -14,7 +14,10 @@ export default {
 
 <style>
   @import './assets/css/base.css';
-  
+  .link{
+    color: white;
+  }
+
   .link:hover{
   color: var(--color-high-text);
   transition: color 0.3s;

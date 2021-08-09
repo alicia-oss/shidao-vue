@@ -22,8 +22,7 @@ export default {
         
     }
     .center{
-        flex: 2;
-        
+        flex: 2;   
     }
 
 </style>

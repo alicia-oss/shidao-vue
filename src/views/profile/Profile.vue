@@ -7,18 +7,33 @@
         </el-col>
       </el-row>
     </div>
-    <header-back pageName="个人中心"></header-back>
+    <profile-header></profile-header>
+    <el-row>
+      <el-col :span="4"><profile-sider></profile-sider></el-col>
+      <el-col :span="20">
+        <router-view></router-view>
+      </el-col>
+    </el-row>
+    
+    <bottom></bottom>
+
   </div>
 </template>
 
 <script>
+import ProfileHeader from './childComponents/ProfileHeader.vue';
 import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue';
-import HeaderBack from '../../components/contant/back/HeaderBack.vue'
+import HeaderBack from '../../components/contant/back/HeaderBack.vue';
+import ProfileSider from './childComponents/ProfileSider.vue'
+import Bottom from '../../components/contant/bottom/Bottom.vue';
 export default {
   name: "Profile",
   components: {
     SearchResultNavBar,
-    HeaderBack
+    HeaderBack,
+    ProfileHeader,
+    ProfileSider,
+    Bottom
   }
 }
 </script>

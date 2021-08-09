@@ -40,9 +40,10 @@ img{
 }
 
 .card:hover{
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 24px 50px 0px;
   transition: box-shadow 0.3s;
   transition-timing-function: ease-in-out;
 }
+
 
 </style>

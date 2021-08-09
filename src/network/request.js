@@ -3,15 +3,8 @@ import Qs from 'qs'
 
 export function request(config) {
     const instance = axios.create({
-        baseURL: "http://localhost:8080",
+        baseURL: "http://localhost:8080/Tmall_SSM_war",
         timeout: 5000,
-        transformRequest: [
-            (data) => {
-                return data instanceof FormData ? data : Qs.stringify({ //此处的data类型判断为重要点，
-                    ...data
-                });
-            }
-        ]
     })
 
     // instance.interceptors.request.use(config => {

@@ -2,9 +2,9 @@
 <div>
   <nav-bar>
     <div slot="left">
-      <div class="logo">师到课堂</div>
+      <div class="logo" @click="backHome">师到课堂</div>
     </div>
-    <div slot="center">
+    <div class="center" slot="center">
       <search-item  class="search-item" buttonColor = "rgb(71, 68, 67)" contantColor = "rgb(71, 68, 67)"></search-item>
     </div>
     <div slot="right">
@@ -28,6 +28,11 @@ export default {
     NavBar,
     SearchItem,
     HomeUserTab
+  },
+  methods:{
+    backHome(){
+      this.$router.push("/home");
+    }
   }
 
 }
@@ -45,6 +50,7 @@ export default {
 }
 
 .search-item {
+  margin-left: 10%;
   margin-top: 7px;
 }
 

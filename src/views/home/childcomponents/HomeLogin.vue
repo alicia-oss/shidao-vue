@@ -4,11 +4,12 @@
     <div class="unlogin-img">
       <img src="~assets/img/admin.jpg" alt="" srcset="">
     </div>
+    
      <div>
-      <el-button type="success" plain class="button">我的课程</el-button>
+      <el-button type="success" plain class="button" @click="GoClass">我的学习</el-button>
     </div>
     <div>
-      <el-button type="success" plain class="button">我的订单</el-button>
+      <el-button type="success" plain class="button" @click="GoOrder">我的订单</el-button>
     </div>
 
   </div>
@@ -21,13 +22,7 @@
     <div>
       <el-button type="success" plain class="button" @click="LoginClick">登录/注册</el-button>
     </div>
-  <div class="home-login" v-if="this.$store.state.login == 1">
-   <div>
-      <img src="~assets/img/admin.jpg" alt="" srcset="">
-    </div>
-    <div class="username">
-      {{this.$store.state.userData.username}}
-    </div>
+
 
   </div>
 </div>
@@ -41,6 +36,12 @@ export default {
   methods:{
     LoginClick(){
       this.$router.push("/login");
+    },
+    GoClass(){
+      this.$router.push("/profile/study")
+    },
+    GoOrder(){
+      this.$router.push("/profile/order")
     }
   }
 }

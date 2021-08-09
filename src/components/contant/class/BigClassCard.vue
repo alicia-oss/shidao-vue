@@ -48,7 +48,7 @@ export default {
   display: flex;
   background-color:white;
   width: 95%;
-  height: 240px;
+  height: 220px;
   padding-left: 0px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -58,6 +58,7 @@ export default {
 }
 
 .img img{
+  width: 100%;
   height: 100%;
   overflow: hidden;
 }

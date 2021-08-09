@@ -38,7 +38,6 @@ export default {
   float: left;
   width: 280px;
   margin-left: 10px;
-
 }
 img{
   

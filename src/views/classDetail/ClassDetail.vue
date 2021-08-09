@@ -29,7 +29,7 @@
     </el-col>
 
     <el-col class="side" :span="5">
-      
+      <sider :data="siderData"></sider>
     </el-col>
   </el-row>
 
@@ -43,6 +43,7 @@ import ClassDetailTop from './childComponents/ClassDetailTop.vue';
 import ClassIntro from './childComponents/ClassIntro.vue';
 import ClassComment from './childComponents/ClassComment.vue';
 import HeaderBack from '../../components/contant/back/HeaderBack.vue';
+import Sider from './childComponents/Sider.vue';
 export default {
   name: 'ClassDetail',
   components: {
@@ -50,7 +51,9 @@ export default {
     ClassDetailTop,
     ClassIntro,
     ClassComment,
-    HeaderBack
+    HeaderBack,
+    Sider
+    
   },
   data(){
     return{
@@ -113,7 +116,16 @@ export default {
          },
 
        ],
-       class_id:""
+       class_id:"",
+       siderData:{
+         userInfo:{
+            id:"15",
+            domain:"IT",
+            username:"泡泡老师",
+            intro:"CF十年老枪战游戏，实现3亿电竞人的枪战王者梦，做梦一般是大脑在睡眠时兴奋的体现。服务无数喜欢IT年轻人",
+            img:"https://edu-image.nosdn.127.net/4b9cd4995f6b41089aae13621c32d867.jpg",
+              }
+            }
     }
   },
   created() {

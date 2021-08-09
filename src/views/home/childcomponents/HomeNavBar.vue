@@ -1,7 +1,7 @@
 <template>
   <div class="home-nav-bar">
     <nav-bar>
-          <div slot="left" class="left">
+          <div slot="left" class="left" @click="backHome">
             <div>
             <span class="one">师到学堂</span>
             <span class="two">你的职业学堂</span>
@@ -28,6 +28,11 @@ export default {
     NavBar,
     SearchItem,
     HomeUserTab
+  },
+  methods:{
+    backHome(){
+      this.$router.push("/home");
+    }
   }
 
 }

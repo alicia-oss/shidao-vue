@@ -13,7 +13,7 @@
         <class-form></class-form>
       </el-col>
       <el-col :span="5">
-        <side></side>
+        <sider></sider>
       </el-col>
     </el-row>
    
@@ -26,7 +26,7 @@
 import HeaderBack from '../../components/contant/back/HeaderBack.vue';
 import ClassForm from './childComponents/ClassForm.vue';
 import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue';
-import Side from './childComponents/Side.vue'
+import Sider from './childComponents/Sider.vue'
 
 export default {
   name:"CreateClass",
@@ -39,7 +39,7 @@ export default {
     HeaderBack,
     ClassForm,
     SearchResultNavBar,
-    Side
+    Sider
 
   }
 
