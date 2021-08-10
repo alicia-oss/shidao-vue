@@ -4,19 +4,55 @@
     <div class="title item"><h2>密码登录</h2></div>
     <div class="item" ><input class="useraccount" type="text" v-model="useraccount" placeholder="请输入账号"></input></div>
     <div class=" item"><input class="useraccount" type="password"  v-model="password" placeholder="请输入密码"></input></div>
-    <div class="item"><el-button class="button" type="primary" plain><span style="font-size:var(--font-size-big)">登录</span></el-button></div>
+    <div class="item"><el-button class="button" type="primary" plain @click="LoginClick" :loading="load"><span style="font-size:var(--font-size-big)">登录</span></el-button></div>
     <div class="item">没有账号？<router-link style="color:var(--color-high-text)" to="/register" >立即注册</router-link></div>
     </div>
   </div>
 </template>
 
 <script>
+import {Login} from '../../../network/login'
 export default {
   name: 'LoginContant',
   data() {
     return{
       useraccount:"133435433",
       password:"76890232szx",
+      load:false
+    }
+  },
+  methods:{
+    LoginClick(){
+      this.load = true;
+      Login(this.useraccount,this.password).then((res)=>{
+        //将按钮置回
+        this.load = false;
+        //发送成功提示并调转到首页
+        if(res.data.msg == "success"){
+          this.$store.commit('SetUserState',{
+            login:1,
+            userId:"12321421",
+            userName:"无敌的我",
+            userImg:"admin.jpg"      
+          })
+          this.$message({
+            type:"success",
+            message:"登录成功，3s后跳转!"
+          })
+          setTimeout(() => {
+            this.$router.push('/home');
+          }, 3000);      
+        }
+        //发送失败提示
+        if(res.data.msg == "fail"){
+          this.$message({
+            type:"error",
+            message:"账号或密码错误，请重新登录！"
+          })
+        }
+        
+      })
+
     }
   }
 

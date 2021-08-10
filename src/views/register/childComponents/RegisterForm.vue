@@ -8,6 +8,9 @@
         <el-form-item class="item" label="密码" >
           <el-input v-model="userInfo.password"></el-input>
         </el-form-item>
+        <el-form-item class="item" label="手机号码" >
+          <el-input v-model="userInfo.phone"></el-input>
+        </el-form-item>
         <el-form-item class="item" label="昵称" >
           <el-input v-model="userInfo.userName"></el-input>
         </el-form-item>
@@ -37,11 +40,12 @@ export default {
   data(){
     return{
       userInfo:{
-        userName:"",
+        username:"",
         account:"",
         password:"",
-        sex:"",
-        textIntro:"",
+        phone:"",
+        //sex:"",
+        selfIntro:"",
         domain:""
       },
       file:null,

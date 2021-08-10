@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import {ClassSearch} from '../../network/search';
 import SearchResultNavBar from './childComponents/SearchResultNavBar.vue';
 import SearchResultTab from './childComponents/SearchResultTab.vue';
 import SearchResultList from './childComponents/SearchResultList.vue';
@@ -214,11 +215,17 @@ export default {
   methods: {
     TabClick(index) {
       this.listTabIndex = index;
-    }
+    },
   },
   created() {
     this.keyWord = this.$route.query.keyword;
-  }
+    ClassSearch(this.keyWord).then((res)=>{
+      console.log("!!搜索结果课程:")
+      console.log(res);
+    })
+  },
+ 
+
   
 }
 </script>

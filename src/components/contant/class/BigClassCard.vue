@@ -2,7 +2,7 @@
   <div class="card" @click="ItemClick">
     <div class="img"><img :src="data.img" alt=""></div>
     <div class="contant">
-      <div class="title">{{data.title}}</div>
+      <div class="title title-text">{{data.title}}</div>
       <div class="score"><el-rate
           v-model="data.score"
           disabled
@@ -10,10 +10,10 @@
           text-color="#ff9900"
           :score-template="data.score.toString()">
         </el-rate></div>
-      <div class="intro">{{data.intro}}</div>
-      <div class="price">{{data.price}}</div>
-      <div class="time">{{data.time}}</div>
-      <div class="name">{{data.teacherName}}</div>
+      <div class="intro main-text">{{data.intro}}</div>
+      <div class="price tag-text"><span>参考价格：{{data.price}}</span> <span class="time">参考时长：{{data.time}}(小时)</span></div>
+      
+      <div class="name tag-text">老师：{{data.teacherName}}</div>
     </div>
   </div>
 </template>
@@ -58,7 +58,6 @@ export default {
 }
 
 .img img{
-  width: 100%;
   height: 100%;
   overflow: hidden;
 }
@@ -76,4 +75,11 @@ export default {
   transition-timing-function: ease-in-out;
 }
 
+.time {
+  padding-left: 30%;
+}
+
+.price{
+  padding-top: 10px;
+}
 </style>

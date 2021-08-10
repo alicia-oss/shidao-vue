@@ -44,7 +44,7 @@
 
 <script>
 import AvUpload from '../../../components/common/upload/AvUpload.vue'
-import{ submitForm ,submitJson} from'../../../network/CreateClass'
+import{ submitForm ,submitJson} from'../../../network/createClass'
 export default {
   name: "ClassForm",
   data(){

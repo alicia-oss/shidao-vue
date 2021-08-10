@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Qs from 'qs'
+
 
 export function request(config) {
     const instance = axios.create({

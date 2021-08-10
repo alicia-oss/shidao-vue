@@ -62,7 +62,26 @@ a {
     font-size: var(--font-size);
     text-indent: 2em;
     letter-spacing: 0.1em;
-    line-height: 1.6;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.title-text {
+    font-size: var(--font-size-big);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    color: black;
+}
+
+.tag-text {
+    font-size: var(--font-size);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    color: black;
 }
 
 input {

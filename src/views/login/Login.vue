@@ -29,6 +29,7 @@ import LoginContant from './chlidcomponents/LoginContant.vue';
 import SearchResultNavBar from '../searchResult/childComponents/SearchResultNavBar.vue';
 import HeaderBack from '../../components/contant/back/HeaderBack.vue';
 import Bottom from '../../components/contant/bottom/Bottom.vue'
+
 export default {
   name: "Login",
   components: {
@@ -36,7 +37,8 @@ export default {
     SearchResultNavBar,
     HeaderBack,
     Bottom
-  }
+  },
+
 
 
 }

@@ -8,16 +8,19 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  created(){
+    if(window.sessionStorage.getItem('login') != null){
+       this.$store.commit('GetUserState');
+    }
+   
+  }
 }
 </script>
 
 <style>
   @import './assets/css/base.css';
-  .link{
-    color: white;
-  }
-
+  
   .link:hover{
   color: var(--color-high-text);
   transition: color 0.3s;
