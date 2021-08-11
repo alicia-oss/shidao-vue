@@ -55,7 +55,8 @@ export default {
   height: 400px;
   margin: 20px 4px;
   margin-right: 0;
-  border: 2px solid var(--color-text);
+  border: 1px solid var(--color-border);
+  background-color: white;
 }
 
 img {

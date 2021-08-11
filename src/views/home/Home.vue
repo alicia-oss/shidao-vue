@@ -50,7 +50,7 @@ import HomeLogin from './childcomponents/HomeLogin.vue'
 import RecommandTeacher from './childcomponents/RecommandTeacher.vue'
 import RecommandClass from './childcomponents/RecommandClass.vue';
 import Bottom from '../../components/contant/bottom/Bottom.vue'
-import {GetData} from '../../network/home'
+import {GetData,CheckLogin} from '../../network/home'
 export default {
   name: 'Home',
   components: {
@@ -165,7 +165,7 @@ export default {
   created(){
     GetData().then((res)=>{
       console.log(res);
-    })
+    }); 
   }
 }
 </script>

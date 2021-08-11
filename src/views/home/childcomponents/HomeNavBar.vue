@@ -9,6 +9,8 @@
           </div>
           <div slot="center" class="center">
             <search-item></search-item>
+            <top-down-menu></top-down-menu>
+
           </div>
           <div slot="right">
             <home-user-tab></home-user-tab>
@@ -21,13 +23,15 @@
 import NavBar from '../../../components/common/navbar/NavBar.vue';
 import SearchItem from 'components/contant/search/SearchItem';
 import HomeUserTab from './HomeUserTab.vue';
+import TopDownMenu from '../../../components/contant/downMenu/TopDownMenu.vue';
 export default {
   name: 'HomeNavBar',
  
   components: {
     NavBar,
     SearchItem,
-    HomeUserTab
+    HomeUserTab,
+    TopDownMenu
   },
   methods:{
     backHome(){
@@ -59,10 +63,6 @@ export default {
   letter-spacing: 3px;
 }
 
-.center {
-
-  padding: 6.5px 120px;
-}
 
 
 

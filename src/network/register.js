@@ -3,7 +3,7 @@ import qs from "qs"
 
 export function submit(data) {
     return request({
-        url: "/test01",
+        url: "/register",
         method: "post",
         // headers: { "Content-Type": "application/json;Charset=utf-8" },
         // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

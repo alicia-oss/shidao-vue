@@ -19,10 +19,15 @@ export default {
 
     .left ,.right{
         flex: 1;
+        height: 100%;
         
     }
     .center{
-        flex: 2;   
+        flex: 2;  
+        display: flex; 
+        height: 100%;
     }
+
+
 
 </style>

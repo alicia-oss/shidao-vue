@@ -29,11 +29,14 @@ export default {
         this.load = false;
         //发送成功提示并调转到首页
         if(res.data.msg == "success"){
+          
           this.$store.commit('SetUserState',{
             login:1,
             userId:"12321421",
             userName:"无敌的我",
-            userImg:"admin.jpg"      
+            userImg:"admin.jpg",
+            collection_class:[1,2,11,15,16,14],
+            collection_question:[1,2,11,15,16,14]        
           })
           this.$message({
             type:"success",
@@ -50,12 +53,9 @@ export default {
             message:"账号或密码错误，请重新登录！"
           })
         }
-        
       })
-
     }
   }
-
 }
 </script>
 

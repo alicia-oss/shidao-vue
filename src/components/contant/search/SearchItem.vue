@@ -1,9 +1,10 @@
 <template>
+
 <div class="search-item"  >
-  <input type="text" v-model="input"   placeholder="请输入要搜索的内容" class="contant" >
+  <input type="text" v-model="input" @keyup.enter="search"  placeholder="请输入要搜索的内容" class="contant" >
   <el-button type="primary" icon="el-icon-search" class="button" :style="{backgroundColor: buttonColor}" @click="search"><span class="button-txt">搜索</span></el-button>
 </div>
-  
+
 </template>
 
 <script>
@@ -19,7 +20,7 @@ export default {
   },
   data() {
     return {
-      input: ''
+      input: ""
     }
   },
   methods: {
@@ -37,21 +38,25 @@ export default {
 </script>
 
 <style scoped>
+
 .search-item{
+  box-sizing: border-box;
+  align-self: center;
   padding-left: 15px;
-  width: 465px;
+  width: 70%;
   background-color: white;
-  border: 1px solid var(--color-text);
+  border: 0.5px solid var(--color-text);
   border-radius: 22px;
   height: 44px;
   overflow: hidden;
 }
 .contant{
+  box-sizing: border-box;
   padding: 0 0;
   padding-left: 20px;
   border: 0;
   height: 44px;
-  width: 370px;
+  width: 82%;
   font-size: var(--font-size-small);
   box-shadow: none !important;
   outline: none;
@@ -60,12 +65,12 @@ export default {
 
 
 .search-item .button {
- 
-  padding: 0 10px;
+ box-sizing: border-box;
+  padding: 0 5px;
   border-radius: 0;
   border: 0;
   height: 45px;
-  width: 75px;
+  width: 18%;
   font-size: 14px;
   text-align: left;
 }

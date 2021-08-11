@@ -3,6 +3,9 @@ import store from '../store'
 import VueRouter from 'vue-router'
 
 
+const UpdataUserInfo = () =>
+    import ('../views/updataUserInfo/UpdataUserInfo.vue')
+
 const Home = () =>
     import ('views/home/Home.vue')
 const SearchResult = () =>
@@ -17,6 +20,8 @@ const Register = () =>
     import ('views/register/Register.vue')
 const CreateClass = () =>
     import ('../views/createClass/CreateClass.vue')
+const UpdataClass = () =>
+    import ('../views/updataClass/UpdataClass.vue')
 const ProfileMyClass = () =>
     import ('../views/profile/childComponents/ProfileMyClass.vue')
 const ProfileMyHelp = () =>
@@ -27,6 +32,7 @@ const ProfileMyOrder = () =>
     import ('../views/profile/childComponents/ProfileMyOrder.vue')
 const ProfileMyInfo = () =>
     import ('../views/profile/childComponents/ProfileMyInfo.vue')
+
 
 Vue.use(VueRouter)
 
@@ -60,7 +66,7 @@ const routes = [{
         children: [{
                 path: 'info',
                 component: ProfileMyInfo,
-                meta: { active: "info", requireAuth: true }
+                meta: { active: "info", requireAuth: true },
             },
             {
                 path: 'study',
@@ -90,12 +96,26 @@ const routes = [{
     },
     {
         path: '/register',
-        component: Register
+        component: Register,
+        meta: { requireAuth: false }
     },
     {
         path: '/createclass',
-        component: CreateClass
+        component: CreateClass,
+        meta: { requireAuth: true }
+    },
+    {
+        path: '/updataclass',
+        component: UpdataClass,
+        meta: { requireAuth: true }
+    },
+    {
+        path: '/updataMyInfo',
+        component: UpdataUserInfo,
+        meta: { requireAuth: true }
     }
+
+
 
 
 ]
@@ -108,7 +128,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth == true) {
-        if (store.state.login !== 1) next({ path: '/login' })
+        if (store.state.login != 1 && window.sessionStorage.getItem('login') != 1) next({ path: '/login' })
         else {
             next()
         }

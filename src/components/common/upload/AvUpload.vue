@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name:"PicUpload",
+  name:"AvUpload",
   data() {
     return {
       imageUrl: null,

@@ -73,6 +73,7 @@ export default {
     PicsUpload
   },
   methods: {
+    //改
     submitClick() {
       this.files = this.$refs.ClassFormAvUpload.files;
       let data = new FormData();
@@ -86,8 +87,11 @@ export default {
       submit(data).then((res)=>{
         console.log(res);
       })
-
     } 
+  },
+  created(){
+    
+
   }
     
 

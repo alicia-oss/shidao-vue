@@ -6,3 +6,10 @@ export function GetData() {
         method: 'get',
     })
 }
+
+export function CheckLogin() {
+    return request({
+        url: '/checkLogin',
+        method: 'get'
+    })
+}

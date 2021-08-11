@@ -6,6 +6,7 @@
     </div>
     <div class="center" slot="center">
       <search-item  class="search-item" buttonColor = "rgb(71, 68, 67)" contantColor = "rgb(71, 68, 67)"></search-item>
+      <top-down-menu></top-down-menu>
     </div>
     <div slot="right">
       <home-user-tab  fontColor="white"></home-user-tab>
@@ -19,7 +20,8 @@
 <script>
 import NavBar from 'components/common/navbar/NavBar.vue';
 import SearchItem from 'components/contant/search/SearchItem.vue';
-import HomeUserTab from '../../home/childcomponents/HomeUserTab.vue'
+import HomeUserTab from '../../home/childcomponents/HomeUserTab.vue';
+import TopDownMenu from '../../../components/contant/downMenu/TopDownMenu.vue';
 
 export default {
   name: 'SearchResultNavBar' ,
@@ -27,7 +29,8 @@ export default {
   components: {
     NavBar,
     SearchItem,
-    HomeUserTab
+    HomeUserTab,
+    TopDownMenu
   },
   methods:{
     backHome(){
@@ -49,9 +52,9 @@ export default {
   letter-spacing: 2px;
 }
 
-.search-item {
-  margin-left: 10%;
-  margin-top: 7px;
+
+.center {
+  padding: 6.5px 120px;
 }
 
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div>
 我发布的求助
-<test-card></test-card>
   </div>
 </template>
 

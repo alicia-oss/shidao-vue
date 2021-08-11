@@ -1,5 +1,6 @@
 <template>
 <div class="info">
+  <div class="updata"><router-link to="/updataMyInfo" style="color:var(--color-high-text)">修改个人信息</router-link></div>
     <h1>个人信息</h1>
     <h3>昵称：{{userInfo.userName}}</h3>
     <h3>账号：{{userInfo.account}}</h3>
@@ -7,6 +8,7 @@
     <h3>性别：{{userInfo.sex}}</h3>
     <h3>兴趣领域: {{userInfo.domain}}</h3>
     <h3>个人介绍：{{userInfo.intro}}</h3>
+    
 </div>
 
 </template>
@@ -52,5 +54,10 @@ export default {
 
 h3{
   width: 400px;
+}
+
+.updata{
+  position: absolute;
+  right: 30%;
 }
 </style>

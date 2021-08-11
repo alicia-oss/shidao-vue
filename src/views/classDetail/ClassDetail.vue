@@ -44,6 +44,7 @@ import ClassIntro from './childComponents/ClassIntro.vue';
 import ClassComment from './childComponents/ClassComment.vue';
 import HeaderBack from '../../components/contant/back/HeaderBack.vue';
 import Sider from './childComponents/Sider.vue';
+import {GetData} from '../../network/classDetail'
 export default {
   name: 'ClassDetail',
   components: {
@@ -58,6 +59,7 @@ export default {
   data(){
     return{
        TopData: {
+         id:11,
         img:"https://edu-image.nosdn.127.net/68611f0975fe453c818679cc9057e46e.png?imageView&quality=100&type=webp",
         title:"2021最新安全框架",
         score:4.5,
@@ -116,7 +118,7 @@ export default {
          },
 
        ],
-       class_id:"",
+       class_id:1,
        siderData:{
          userInfo:{
             id:"15",
@@ -129,7 +131,13 @@ export default {
     }
   },
   created() {
-    this.class_id = this.$route.query.class_id;
+    
+    this.class_id = parseInt(this.$route.query.class_id);
+    console.log(typeof(this.class_id))
+    GetData(this.class_id).then((res)=>{
+      console.log(res);
+    })
+    
   }
   
 

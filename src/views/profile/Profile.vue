@@ -11,7 +11,10 @@
     <el-row>
       <el-col :span="4"><profile-sider></profile-sider></el-col>
       <el-col :span="20">
-        <router-view></router-view>
+        <keep-alive>
+          <router-view ></router-view>
+        </keep-alive>
+        
       </el-col>
     </el-row>
     

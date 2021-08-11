@@ -15,6 +15,12 @@
     <p class="main-text">{{data.fontKnowledge}}</p>
   </div>
 
+   <div class="item">
+    <h2><i class="el-icon-reading" />&nbsp教学工具：</h2>
+    <p class="main-text">{{data.tools}}</p>
+  </div>
+
+
   <div class="item">
     <h2><i class="el-icon-paperclip" />&nbsp附加：</h2>
     <p class="main-text">{{data.add}}</p>
@@ -32,7 +38,7 @@ export default {
     data: {
       intro:null,
       classContant:null,
-      fontKnowledge:null,
+      frontKnowledge:null,
       tools:null,
       add:null   
     }

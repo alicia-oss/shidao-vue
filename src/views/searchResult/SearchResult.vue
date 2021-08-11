@@ -44,6 +44,7 @@ export default {
   
         classList: {
         number: "30",
+        page:1,
         list:[
           {
             id:"12",
@@ -101,7 +102,8 @@ export default {
 
         },
         userList: {
-          number:"30",
+          number:30,
+          page:1,
           list:[
             {
             id:"15",
@@ -216,14 +218,26 @@ export default {
     TabClick(index) {
       this.listTabIndex = index;
     },
-  },
-  created() {
-    this.keyWord = this.$route.query.keyword;
-    ClassSearch(this.keyWord).then((res)=>{
+    UpData(){
+      this.keyWord = this.$route.query.keyword;
+      ClassSearch(this.keyWord,1).then((res)=>{
       console.log("!!搜索结果课程:")
       console.log(res);
     })
+    }
   },
+  created() {
+    this.UpData()
+  },
+  watch: {
+    $route: {
+          handler() {
+              this.UpData();
+              //深度监听，同时也可监听到param参数变化
+        },
+        deep: true,
+    }
+  }    
  
 
   

@@ -1,11 +1,12 @@
 import { request } from './request';
 
-export function ClassSearch(keyword) {
+export function ClassSearch(keyword, pageNum) {
     return request({
         url: '/searchClassInfo',
         method: 'get',
         params: {
-            keyword
+            keyword,
+            pageNum,
         }
     })
 }
@@ -21,11 +22,11 @@ export function HelpSearch(keyword) {
 }
 
 export function UserSearch(keyword) {
-  return request({
-      url: '/searchUserInfo',
-      method: 'get',
-      params: {
-          keyword
-      }
-  })
+    return request({
+        url: '/searchUserInfo',
+        method: 'get',
+        params: {
+            keyword
+        }
+    })
 }
