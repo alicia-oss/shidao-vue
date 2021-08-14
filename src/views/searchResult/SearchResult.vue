@@ -43,13 +43,13 @@ export default {
       listData: {
   
         classList: {
-        number: "30",
+        number: 5,
         page:1,
         list:[
           {
             id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-            title: "西式烹饪工艺--土豆烧牛逼",
+            title: "西式烹饪工艺--土豆烧肉",
             intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
@@ -59,7 +59,7 @@ export default {
           {
             id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-            title: "西式烹饪工艺--土豆烧牛逼",
+            title: "西式烹饪工艺--土豆烧肉",
             intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
@@ -69,7 +69,7 @@ export default {
           {
             id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-            title: "西式烹饪工艺--土豆烧牛逼",
+            title: "西式烹饪工艺--土豆烧肉",
             intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
@@ -79,7 +79,7 @@ export default {
           {
             id:"12",
             img:"https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-            title: "西式烹饪工艺--土豆烧牛逼",
+            title: "西式烹饪工艺--土豆烧肉",
             intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
@@ -89,7 +89,7 @@ export default {
           {
             id:"12",
             img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-            title: "西式烹饪工艺--土豆烧牛逼",
+            title: "西式烹饪工艺--土豆烧肉",
             intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
             price:"998.99",
             time:"20.00",
@@ -189,22 +189,7 @@ export default {
           money:"99",
           score:3.9
         },
-        {
-          id:11,
-          img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
-          title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
-          username:"中国大学mooc",
-          money:"99",
-          score:3.9
-        },
-         {
-           id:11,
-          img:"https://edu-image.nosdn.127.net/12149ec4ca034069a03d50a5f5857ad1.png?imageView&quality=100",
-          title:"【零基础Python数据分析】搞定考研和500强面试（7月21日）",
-          username:"中国大学mooc",
-          money:"99",
-          score:3.9
-        }]
+      ]
       } 
   },
   components: {

@@ -36,11 +36,10 @@ export default {
 
 .txt {
   float: left;
-  width: 280px;
+  width: 160px;
   margin-left: 10px;
 }
 img{
-  
   height: 115px;
 }
 

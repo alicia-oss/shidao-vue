@@ -12,7 +12,7 @@
           </el-select>
         </el-form-item>
         <el-form-item  label="课程简介">
-          <el-input type="textarea"  resize="none" v-model="classInfo.textIntro"></el-input>
+          <el-input type="textarea"  resize="none" v-model="classInfo.textIntro" :maxlength="200" :show-word-limit="true"></el-input>
         </el-form-item>
         <el-form-item label="参考价格" >
           <el-input v-model="classInfo.price"></el-input>
@@ -26,13 +26,13 @@
 
         <h1 class="headTwo">详细信息</h1>     
         <el-form-item  label="教学内容">
-          <el-input type="textarea"  resize="none" v-model="classInfo.class_content"></el-input>
+          <el-input type="textarea"  resize="none" v-model="classInfo.class_content" :maxlength="200" :show-word-limit="true"></el-input>
         </el-form-item>
         <el-form-item  label="前置知识">
-          <el-input type="textarea"  resize="none" v-model="classInfo.front_knowledge"></el-input>
+          <el-input type="textarea"  resize="none" v-model="classInfo.front_knowledge" :maxlength="200" :show-word-limit="true"></el-input>
         </el-form-item>
         <el-form-item  label="教学工具">
-          <el-input type="textarea"  resize="none" v-model="classInfo.tools"></el-input>
+          <el-input type="textarea"  resize="none" v-model="classInfo.tools" :maxlength="200" :show-word-limit="true"></el-input>
         </el-form-item>
         <!-- <el-form-item  label="附加信息">
           <el-input type="textarea"  resize="none" v-model="classInfo.add"></el-input>
@@ -53,10 +53,11 @@ export default {
       classInfo:{
         use_id:0,
         id: 0,
+        // score:0,
         statu:0,
         title:"勇敢的心",
         textIntro:"html label标签的for属性有什么作用？ 关于label标签的for属性介绍 <label>专为input元素服务，为其定义标记。 1.将表单控件作为label的内容，这样就是隐士绑定。 此时不需要for属性，绑定的控件也不需要id属性。 2.为<label>标签下的for属性命名一个目标表单的id，这就是显示绑定。",
-        domain_id:"1",
+        domain_id:1,
         suggestTime:12,
         price:14, 
         class_content:"",
@@ -77,7 +78,7 @@ export default {
       this.files = this.$refs.ClassFormAvUpload.files;
       let data = new FormData();
       for( let i = 0; i < this.files.length; i++ ){
-        console.log(this.files[i]);
+        // console.log(this.files[i]);
       data.append('pictures',this.files[i]);
       }
       data.append('videos',this.videos);

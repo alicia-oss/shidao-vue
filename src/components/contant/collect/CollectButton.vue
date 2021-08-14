@@ -6,7 +6,8 @@
 </template>
 
 <script>
-//说明：只样子，点击事件的方法和事件绑定全部放在父子件中
+import {CollectClass,CancelCollectClass,CollectQuestion,CancelCollectQuestion} from '../../../network/collect';
+import { UpdateLocal } from '../../../network/user'
 export default {
   name:"CollectButton",
   props:{
@@ -20,33 +21,43 @@ export default {
     }
   },
   methods:{
+
     IsCollected(){
-      if(collectClass == null){
+      if(this.isLogin == false){
         return false;
       }
+      if(this.$store.state.userData.collectionClass == null){
+        return false;
+      }
+        if(this.$store.state.userData.collectionQuestion == null){
+      return false;
+    }
+      let flag = false;
       if(this.classId != null){
-        let collectClass =  this.$store.state.userData.collectionClass;   
-        let  arrayClass = collectClass.split(",");
+        let collectClass =  this.$store.state.userData.collectionClass;      
+        let  arrayClass = collectClass.split("&");
         arrayClass.forEach(element => {
           if(element === this.classId.toString()){
-            this.isCollect = true;
-            return true;
+           flag = true
+          return true;
           }
         });
       }
+  
       if(this.questionId != null){
-        let collectQuestion =  this.$store.state.userData.collectionQuestion
+        let collectQuestion =  this.$store.state.userData.collectionQuestion;
         let  arrayQuestion = collectQuestion.split(",");
         arrayQuestion.forEach(element => {
           if(element == this.questionId){
-            this.isCollect = true;
+             flag = true
             return true;
           }
         });
-      }  
-      this.isCollect = false;
-      return false;      
+      }       
+      this.isCollect = flag;
+      return flag;      
     },
+
     ButtonClick(){
       if(this.isLogin == false){
         this.$message({
@@ -54,15 +65,73 @@ export default {
           message:"登录后即可收藏,请先登录！"
         })
         return;
+      } 
+      if(this.classId != null){
+        this.ClassClick();
+        return;
       }
-      if(this.isCollect == true){
+      if(this.questionId != null){
+        this.QuestionClick();
+        return;
+      }
+    },
+
+    ClassClick(){
+        if(this.isCollect == true){
         //发送取消收藏请求
-        this.isCollect = false;
+        CancelCollectClass(this.classId).then((res)=>{
+          if(res.data.msg == "success"){
+            UpdateLocal();
+             console.log(2)
+            this.isCollect = false;   
+               
+          }
+          if(res.data.msg== "fail"){
+            this.$message({
+              type:"error",
+              message:"取消收藏失败，请重试！"
+            })
+          }
+
+        })
+        
+        
       }else{
         //发送收藏请求
+        CollectClass(this.classId).then((res)=>{
+          if(res.data.msg== "success"){
+            UpdateLocal();
+            console.log(1)
+            this.isCollect = true;   
+               
+          }
+          if(res.data.msg== "fail"){
+            this.$message({
+              type:"error",
+              message:"收藏失败，请重试！"
+            })
+          }
+           if(res.data.msg == "课程已收藏"){
+            UpdateLocal();        
+          }
+          
+        })
+          
+      }
+    },
+
+    QuestionClick(){
+      if(this.isCollect == true){
+      //发送取消收藏请求
+      CancelCollectQuestion(this.questionId);
+      this.isCollect = false;
+      }else{
+        //发送收藏请求
+        CollectQuestion(this.questionId);
         this.isCollect = true;
       }
     },
+
     IsLogin(){
       if(this.$store.state.login == 0){
         this.isLogin = false;
@@ -74,9 +143,11 @@ export default {
     }
   },
 
-  created(){
+  mounted(){
+     
     if(this.IsLogin()){
-       this.isCollect();
+       this.IsCollected();
+       console.log(this.isCollect);
     } 
   },
 
@@ -87,6 +158,7 @@ export default {
 
 .collect{
   position: absolute;
+  cursor: pointer;
   right: 20%;
   height: 40px;
   line-height: 40px;

@@ -63,6 +63,10 @@ export default {
   letter-spacing: 3px;
 }
 
+.center {
+  padding: 6.5px 120px;
+  padding-right: 0px;
+}
 
 
 

@@ -29,22 +29,27 @@ export default {
         this.load = false;
         //发送成功提示并调转到首页
         if(res.data.msg == "success"){
-          
+          let data = res.data.userInfo;
           this.$store.commit('SetUserState',{
-            login:1,
-            userId:"12321421",
-            userName:"无敌的我",
-            userImg:"admin.jpg",
-            collection_class:[1,2,11,15,16,14],
-            collection_question:[1,2,11,15,16,14]        
+             login: 1,
+            userId: data.id,
+            userName: data.username,
+            userImg: "admin.jpg",
+            collection_class: data.collection_class,
+            collection_question: data.collection_question   
           })
+          let timer = 3;
+         
           this.$message({
             type:"success",
-            message:"登录成功，3s后跳转!"
+            message:`登录成功，${timer}s后跳转!`
           })
-          setTimeout(() => {
-            this.$router.push('/home');
-          }, 3000);      
+           setInterval(()=>{
+            timer--;
+            if(timer == 0){
+                this.$router.push('/home');
+            }
+          },1000)     
         }
         //发送失败提示
         if(res.data.msg == "fail"){

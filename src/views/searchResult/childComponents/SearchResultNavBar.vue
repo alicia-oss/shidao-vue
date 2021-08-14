@@ -55,6 +55,7 @@ export default {
 
 .center {
   padding: 6.5px 120px;
+  padding-right: 0px;
 }
 
 </style>

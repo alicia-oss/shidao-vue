@@ -12,7 +12,7 @@
     </el-row>
     <el-row>
       <el-col :span = 5 :offset="2">
-        <class-list :items="ClassListData"></class-list>
+        <category-list :items="CateListData"></category-list>
       </el-col>
       <el-col :span = 10 >
         <home-swiper :imgs="HomeSwiperData"></home-swiper>
@@ -44,7 +44,7 @@
 
 import HomeNavBar from './childcomponents/HomeNavBar.vue';
 import HomeTab from './childcomponents/HomeTab.vue'
-import ClassList from './childcomponents/ClassList.vue';
+import CategoryList from './childcomponents/CategoryList.vue';
 import HomeSwiper from './childcomponents/HomeSwiper.vue';
 import HomeLogin from './childcomponents/HomeLogin.vue'
 import RecommandTeacher from './childcomponents/RecommandTeacher.vue'
@@ -56,7 +56,7 @@ export default {
   components: {
     HomeNavBar,
     HomeTab,
-    ClassList,
+    CategoryList,
     HomeSwiper,
     HomeLogin,
     RecommandTeacher,
@@ -65,7 +65,7 @@ export default {
   },
   data() {
     return {
-      ClassListData:["Java","web","视觉设计","绘图","机械设计"],
+      CateListData:["Java","web","视觉设计","绘图","机械设计"],
       HomeSwiperData:["https://edu-image.nosdn.127.net/a13f3f4f15f343668eceab7ea9bb6c02.png?imageView&quality=100",
       "https://edu-image.nosdn.127.net/aeeb2dd73fac4523b3c79ec99eeec1ec.png?imageView&quality=100",
       "https://edu-image.nosdn.127.net/a13f3f4f15f343668eceab7ea9bb6c02.png?imageView&quality=100"],

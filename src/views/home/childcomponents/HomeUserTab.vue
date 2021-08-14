@@ -47,21 +47,20 @@ export default {
       return require("assets/img/"+src);
     },
     logoutClick(){
-      this.$confirm("是否确认登出？","系统提示",{
-        confirmButtonText:"确定",
-        cancelButtonText:"取消",
-        type:"warning"
-      })
-      .tnen(async()=>{
+      let choose = window.confirm("您确定要登出吗？");
+      if(choose){
         Logout().then((res)=>{
-          console.log(res);
-          this.$router.push('/home');
+          if(res.data.msg == "success"){
+            this.$store.commit('Logout');
+            this.$router.push('/home');
+          }else{
+            this.$message({
+               type:"error",
+                message:"登出失败，请重试！"
+            })
+          }
         })
-      }) 
-      .catch(()=>{
-
-      })
-
+      }
       }   
   }
 

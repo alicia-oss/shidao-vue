@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'ClassList',
+  name: 'CategoryList',
   props: {
     items:null
   }

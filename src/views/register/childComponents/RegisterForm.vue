@@ -12,22 +12,28 @@
           <el-input v-model="userInfo.phone"></el-input>
         </el-form-item>
         <el-form-item class="item" label="昵称" >
-          <el-input v-model="userInfo.userName"></el-input>
+          <el-input v-model="userInfo.username"></el-input>
         </el-form-item>
         <el-form-item class="item" label="头像" >
           <av-upload ref="RegisterAvUpload"></av-upload>
         </el-form-item>
+        <el-form-item class="item" label="性别">
+          <el-select v-model="userInfo.domain_id" placeholder="请选择课程领域">
+            <el-option label="男" :value="1"></el-option>
+            <el-option label="女" :value="2"></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item class="item" label="兴趣领域">
-          <el-select v-model="userInfo.domain" placeholder="请选择课程领域">
-            <el-option label="区域一" value="1"></el-option>
-            <el-option label="区域二" value="2"></el-option>
+          <el-select v-model="userInfo.domain_id" placeholder="请选择课程领域">
+            <el-option label="区域一" :value="1"></el-option>
+            <el-option label="区域二" :value="2"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item  label="个人简介">
-          <el-input type="textarea"  resize="none" v-model="userInfo.textIntro"></el-input>
+          <el-input type="textarea"  resize="none" v-model="userInfo.selfIntro" :maxlength="200" :show-word-limit="true"></el-input>
         </el-form-item>
         
-        <el-button type="primary" @click="submitClick">提交</el-button>
+        <el-button type="primary" @click="submitClick" :loading="load">提交</el-button>
       </el-form>
   </div>
 </template>
@@ -39,14 +45,19 @@ export default {
   name:"RegisterForm",
   data(){
     return{
+      load:false,
       userInfo:{
+        id:0,
+        graghId:0,
+        collection_class:"",
+        collection_question:"",
         username:"",
         account:"",
         password:"",
         phone:"",
-        //sex:"",
+        sex:1,
         selfIntro:"",
-        domain:""
+        domain_id:1
       },
       file:null,
     }   
@@ -57,13 +68,31 @@ export default {
 
   methods:{
     submitClick(){
+      this.load = true;
        this.file = this.$refs.RegisterAvUpload.file;
        let data = new FormData();
-       data.append('file',this.file) ;
+       data.append('picture',this.file) ;
        let userInfo = JSON.stringify(this.userInfo);
        data.append('userInfo',userInfo)
       submit(data).then((res) =>{
-        console.log(res);   
+        if(res.data.msg == "注册成功"){
+          this.$message({
+            type:"success",
+            message:`注册成功，3s后跳转登录页面!`
+          })
+
+          setTimeout(()=>{
+            this.load = false;
+            this.$router.push('/login');          
+          },3000);         
+        }
+        if(res.data.msg == "用户名已被占用，不能使用"){
+          this.$message({
+            type:"error",
+            message:`账号已被占用，不能使用!`
+          })
+          this.load = false;         
+        }  
       })  
     }
 

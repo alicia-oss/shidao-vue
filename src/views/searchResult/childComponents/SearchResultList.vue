@@ -9,6 +9,11 @@
     <el-radio :label="4">时长降序</el-radio>
   </el-radio-group>
     <big-class-card class="list-item" v-for="item in data.classList.list" :data="item"></big-class-card>
+    <el-pagination class="page"
+      background
+      layout="prev, pager, next"
+      :total="data.classList.number">
+    </el-pagination>
   </div>
   <div class="help-list" v-show="index === 1">求助列表</div>
   <div class="user-list" v-show="index === 2">
@@ -45,6 +50,11 @@ export default {
 </script>
 
 <style scoped>
+.page{
+  text-align: center;
+
+}
+
 .list-item {
   margin: 25px 0;
 }

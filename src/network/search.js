@@ -11,22 +11,24 @@ export function ClassSearch(keyword, pageNum) {
     })
 }
 
-export function HelpSearch(keyword) {
+export function HelpSearch(keyword, pageNum) {
     return request({
         url: '/searchQuestionInfo',
         method: 'get',
         params: {
-            keyword
+            keyword,
+            pageNum
         }
     })
 }
 
-export function UserSearch(keyword) {
+export function UserSearch(keyword, pageNum) {
     return request({
         url: '/searchUserInfo',
         method: 'get',
         params: {
-            keyword
+            keyword,
+            pageNum
         }
     })
 }

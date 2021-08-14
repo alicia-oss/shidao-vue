@@ -37,8 +37,6 @@ export default {
         urls.push(URL.createObjectURL(this.files[i]));
       }
       this.imageUrls = urls;
-      
-
     }
   }
 }

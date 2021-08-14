@@ -26,6 +26,7 @@ export default {
         flex: 2;  
         display: flex; 
         height: 100%;
+        
     }
 
 

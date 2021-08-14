@@ -32,6 +32,15 @@ export default new Vuex.Store({
         },
         GetUserState(state) {
             state.login = window.sessionStorage.getItem('login');
+        },
+        Logout(state) {
+            state.login = 0;
+            window.sessionStorage.setItem('collectionClass', null);
+            window.sessionStorage.setItem('collectionQuestion', null);
+            window.sessionStorage.setItem('userId', null);
+            window.sessionStorage.setItem('userName', null);
+            window.sessionStorage.setItem('userImg', null);
+            window.sessionStorage.setItem('login', 0);
         }
     },
     actions: {},
