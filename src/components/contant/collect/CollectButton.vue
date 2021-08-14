@@ -82,7 +82,6 @@ export default {
         CancelCollectClass(this.classId).then((res)=>{
           if(res.data.msg == "success"){
             UpdateLocal();
-             console.log(2)
             this.isCollect = false;   
                
           }
@@ -101,7 +100,6 @@ export default {
         CollectClass(this.classId).then((res)=>{
           if(res.data.msg== "success"){
             UpdateLocal();
-            console.log(1)
             this.isCollect = true;   
                
           }

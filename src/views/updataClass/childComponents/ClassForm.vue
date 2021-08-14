@@ -87,7 +87,7 @@ export default {
       submit(data).then((res)=>{
         console.log(res);
       })
-    } 
+    }, 
   },
   created(){
     

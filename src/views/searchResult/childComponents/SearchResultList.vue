@@ -12,7 +12,9 @@
     <el-pagination class="page"
       background
       layout="prev, pager, next"
-      :total="data.classList.number">
+      :total="data.classList.number"
+      :current-page="data.classList.page"
+       @current-change="ClassPageChange">
     </el-pagination>
   </div>
   <div class="help-list" v-show="index === 1">求助列表</div>
@@ -43,6 +45,12 @@ export default {
   data() {
     return {
       sorts: 0,//0.默认 1,价格升 2，价格降 3，时长升 4，时长降
+      classCurPage:1
+    }
+  },
+  methods:{
+    ClassPageChange(currentPage){
+      this.data.classList.page = currentPage;
     }
   }
 

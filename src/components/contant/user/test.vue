@@ -3,7 +3,7 @@
     		
     		<div class="card radius shadowDepth1">
     			<div class="card__image border-tlr-radius">
-    				<img src="http://lorempixel.com/400/200/sports/" alt="image" class="border-tlr-radius">
+    				<img src="" alt="image" class="border-tlr-radius">
                 </div>
 
     			<div class="card__content card__padding">

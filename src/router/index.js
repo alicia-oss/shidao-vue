@@ -32,9 +32,10 @@ const ProfileMyOrder = () =>
     import ('../views/profile/childComponents/ProfileMyOrder.vue')
 const ProfileMyInfo = () =>
     import ('../views/profile/childComponents/ProfileMyInfo.vue')
-
-
+const ProfileCollection = () =>
+    import ('../views/profile/childComponents/ProfileCollection.vue')
 Vue.use(VueRouter)
+
 
 const routes = [{
         path: '',
@@ -67,6 +68,11 @@ const routes = [{
                 path: 'info',
                 component: ProfileMyInfo,
                 meta: { active: "info", requireAuth: true },
+            },
+            {
+                path: 'collection',
+                component: ProfileCollection,
+                meta: { active: "collection", requireAuth: true }
             },
             {
                 path: 'study',
@@ -134,5 +140,8 @@ router.beforeEach((to, from, next) => {
         }
     } else next()
 })
+
+
+
 
 export default router

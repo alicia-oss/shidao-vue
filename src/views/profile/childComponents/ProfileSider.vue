@@ -10,6 +10,10 @@
         <i class="el-icon-user-solid"></i>
         <span slot="title">个人信息</span>
       </el-menu-item>
+      <el-menu-item index="collection">
+        <i class="el-icon-user-solid"></i>
+        <span slot="title">我的收藏</span>
+      </el-menu-item>
       <el-menu-item index="study" >
         <i class="el-icon-s-management"></i>
         <span slot="title">我的学习</span>

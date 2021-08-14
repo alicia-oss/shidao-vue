@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {getSrcImage} from '../../../utils/imgUtils';
 export default {
   name: "BigClassCard",
   props: {
@@ -36,7 +37,11 @@ export default {
   methods:{
     ItemClick(){
       this.$router.push({path:'/class',query:{class_id:this.data.id}})
+    },
+    getImage(src){
+      getSrcImage(src);
     }
+
   }
 }
 </script>
