@@ -32,3 +32,15 @@ export function UserSearch(keyword, pageNum) {
         }
     })
 }
+
+export function ClassSort(sort, keyword, pageNum) {
+    return request({
+        url: '/sortClassInfo',
+        method: 'get',
+        params: {
+            sort,
+            keyword,
+            pageNum
+        }
+    })
+}

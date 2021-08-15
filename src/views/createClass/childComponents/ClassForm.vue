@@ -7,8 +7,8 @@
         </el-form-item>
         <el-form-item class="item" label="课程领域">
           <el-select v-model="classInfo.domain_id" placeholder="请选择课程领域">
-            <el-option label="区域一" value="1"></el-option>
-            <el-option label="区域二" value="2"></el-option>
+            <el-option label="区域一" :value="1"></el-option>
+            <el-option label="区域二" :value="2"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item  label="课程简介">
@@ -37,7 +37,7 @@
         <!-- <el-form-item  label="附加信息">
           <el-input type="textarea"  resize="none" v-model="classInfo.add"></el-input>
         </el-form-item> -->
-        <el-button type="primary" @click= "submitClick">提交</el-button>
+        <el-button type="primary" @click= "submitClick" :loading="onload">提交</el-button>
       </el-form>
   </div>
 </template>
@@ -50,13 +50,14 @@ export default {
   name: "ClassForm",
   data(){
     return{
+      onload:false,
       classInfo:{
         use_id:0,
         id: 0,
-        // score:0,
+        score:0,
         statu:0,
-        title:"勇敢的心",
-        textIntro:"html label标签的for属性有什么作用？ 关于label标签的for属性介绍 <label>专为input元素服务，为其定义标记。 1.将表单控件作为label的内容，这样就是隐士绑定。 此时不需要for属性，绑定的控件也不需要id属性。 2.为<label>标签下的for属性命名一个目标表单的id，这就是显示绑定。",
+        title:"",
+        textIntro:"",
         domain_id:1,
         suggestTime:12,
         price:14, 
@@ -75,6 +76,7 @@ export default {
   },
   methods: {
     submitClick() {
+      this.onload = true;
       this.files = this.$refs.ClassFormAvUpload.files;
       let data = new FormData();
       for( let i = 0; i < this.files.length; i++ ){
@@ -85,7 +87,14 @@ export default {
       let classInfo = JSON.stringify(this.classInfo);
       data.append('classInfo',classInfo);
       submit(data).then((res)=>{
-        console.log(res);
+        this.$message({
+          type:"success",
+          message:"课程创建成功！即将跳转"
+        })
+        setTimeout(()=>{
+          this.onload = false
+          this.$router.push('/home')
+        },1000);
       })
 
     } 

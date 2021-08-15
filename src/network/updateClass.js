@@ -1,9 +1,18 @@
-export function UpdataById(classInfo_id) {
+export function getPageData(class_id) {
     return request({
-        url: "/showClassInfo",
-        method: "post",
+        url: "/editClassPage",
+        method: "get",
         params: {
-            classInfo_id
+            class_id
         }
+    })
+}
+
+export function submitUpdate(data) {
+    return request({
+        url: "/editClass",
+        method: "post",
+        headers: { 'Content-Type': 'multipart/form-data' },
+        data: data
     })
 }

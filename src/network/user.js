@@ -4,7 +4,7 @@ import store from '../store'
 
 
 //用来更新本地的用户状态，每次更改后都要执行！！
-function GetUser() {
+export function GetUser() {
     return request({
         url: '/GetUser',
         method: 'get',

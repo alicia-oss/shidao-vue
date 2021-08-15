@@ -78,13 +78,13 @@ export default {
         if(res.data.msg == "注册成功"){
           this.$message({
             type:"success",
-            message:`注册成功，3s后跳转登录页面!`
+            message:`注册成功，2s后跳转登录页面!`
           })
 
           setTimeout(()=>{
             this.load = false;
             this.$router.push('/login');          
-          },3000);         
+          },2000);         
         }
         if(res.data.msg == "用户名已被占用，不能使用"){
           this.$message({

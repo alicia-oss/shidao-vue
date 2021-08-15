@@ -60,9 +60,10 @@ export default {
 
 .img {
   flex:1;
+  overflow: hidden;
 }
 
-.img img{
+ img{
   height: 100%;
   overflow: hidden;
 }

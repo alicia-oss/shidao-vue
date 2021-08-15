@@ -2,7 +2,13 @@
 
   <div class="detail"> 
     <collect-button :classId="data.id"></collect-button>
-    <div class="img"><img :src='data.img' alt=""></div>
+    <div class="img">
+      <el-carousel trigger="click">
+        <el-carousel-item v-for="item in data.imgs" :key="item">
+          <div class="imgitem"><img :src="item" alt=""></div>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
     <div class="contant">
       <div class="title title-text">{{data.title}}</div>
       <div class="score">
@@ -39,10 +45,6 @@ export default {
     CollectButton
   },
   methods: {
-    getImage(src) {
-      return require("assets/img/"+src);
-    },
-    
   
   }
 
@@ -63,8 +65,19 @@ export default {
   width: 37.5%;
 }
 
-img{
+.imgitem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  height: 100%;
+}
+
+img{
+  
+  width: 100%;
+  overflow: hidden;
+  
 }
 
 .contant {

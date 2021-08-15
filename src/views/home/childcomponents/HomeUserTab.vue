@@ -10,7 +10,7 @@
           <el-tooltip effect="dark" content="登出" placement="bottom-start">
             <i  @click="logoutClick" class="el-icon-switch-button logout"></i>
         </el-tooltip></div> 
-        <img :src="getImage(this.$store.state.userData.userImg)" alt="">
+        <img :src="this.$store.state.userData.userImg" alt="">
         
       </div>
     </div>
@@ -43,9 +43,7 @@ export default {
     }
   },
   methods: {
-    getImage(src) {
-      return require("assets/img/"+src);
-    },
+   
     logoutClick(){
       let choose = window.confirm("您确定要登出吗？");
       if(choose){

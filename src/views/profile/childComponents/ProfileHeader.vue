@@ -2,7 +2,7 @@
   <div class="header">
     <div class="main">
       <div class="img">
-         <img :src="getImage(this.$store.state.userData.userImg)" alt="">
+         <img :src="this.$store.state.userData.userImg" alt="">
       </div>
      <div class="content">
        <h1>{{this.$store.state.userData.userName}},你好</h1>

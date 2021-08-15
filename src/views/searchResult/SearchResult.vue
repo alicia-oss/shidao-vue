@@ -11,8 +11,8 @@
     <el-row >
       <el-col :span="14" :offset="2" class="list">
         <div class="list-number">共<span class="number">{{listData.classList.number}}</span>条与<span class="number">{{keyWord}}</span>相关的结果</div>
-        <div class="tab"><search-result-tab @ItemClick = "TabClick"></search-result-tab></div>
-        <div class="list"><search-result-list :data="listData" :index="listTabIndex"></search-result-list></div>
+        <div class="tab" ><search-result-tab  @ItemClick = "TabClick"></search-result-tab></div>
+        <div class="list"><search-result-list @sortChange = "SortChange" :data="listData" :index="listTabIndex"></search-result-list></div>
       </el-col>
         <el-col :span="6" class="recommond">
         <recommand-class :classes="recommandClasses"></recommand-class>
@@ -23,7 +23,8 @@
 </template>
 
 <script>
-import {ClassSearch} from '../../network/search';
+import {backTop} from '../../utils/scrollUtils'
+import {ClassSearch,ClassSort} from '../../network/search';
 import SearchResultNavBar from './childComponents/SearchResultNavBar.vue';
 import SearchResultTab from './childComponents/SearchResultTab.vue';
 import SearchResultList from './childComponents/SearchResultList.vue';
@@ -34,6 +35,7 @@ export default {
   name: "SearchResult",
   data() {
     return {
+      classSort:0,
       keyWord:"",
       listTabIndex: 0,
       navBarData: {
@@ -45,46 +47,7 @@ export default {
         number: 5,
         page:1,
         list:[
-          // {
-          //   id:"12",
-          //   img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-          //   title: "西式烹饪工艺--土豆烧肉",
-          //   intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
-          //   price:"998.99",
-          //   time:"20.00",
-          //   teacherName: "大厨老八",
-          //   score:3.9
-          // },
-          // {
-          //   id:"12",
-          //   img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-          //   title: "西式烹饪工艺--土豆烧肉",
-          //   intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
-          //   price:"998.99",
-          //   time:"20.00",
-          //   teacherName: "大厨王刚",
-          //   score:3.9
-          // },
-          // {
-          //   id:"12",
-          //   img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-          //   title: "西式烹饪工艺--土豆烧肉",
-          //   intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
-          //   price:"998.99",
-          //   time:"20.00",
-          //   teacherName: "大厨王刚",
-          //   score:3.9
-          // },
-          // {
-          //   id:"12",
-          //   img:"https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
-          //   title: "西式烹饪工艺--土豆烧肉",
-          //   intro:"厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!厨师长教你：“鸡蛋下饭菜”的三种做法，咸鲜微辣，拌饭拌面很赞!!!",
-          //   price:"998.99",
-          //   time:"20.00",
-          //   teacherName: "大厨王刚",
-          //   score:3.9
-          // },
+         
           // {
           //   id:"12",
           //   img:"	https://edu-image.nosdn.127.net/315E9C5EA9F821DB257B6CA2F028D21D.png?imageView&thumbnail=510y288&quality=100",
@@ -205,14 +168,9 @@ export default {
     UpData(){
       this.keyWord = this.$route.query.keyword;
       this.GetClass();
-      
-
-  
     },
     GetClass(){    
       ClassSearch(this.keyWord,this.listData.classList.page).then((res)=>{
-      console.log("!!搜索结果课程:")
-      console.log(res);
       let classInfos = res.data.classInfos;
       let userInfos = res.data.userInfos;
       let imgs = res.data.imgPath;
@@ -231,14 +189,52 @@ export default {
         }
         if(obj.img === "no picture") obj.img ="ClassDefault.jpeg";
       this.listData.classList.list.push(obj);
-      
       }      
     })
-
+    },
+    SortClassByVal(){
+      //val : 1: 价格升序  3.时间升序
+      ClassSort(this.classSort,this.keyWord,this.listData.classList.page).then((res)=>{
+      let classInfos = res.data.classInfos;
+      let userInfos = res.data.userInfos;
+      let imgs = res.data.imgPath;
+     this.listData.classList.number = res.data.resultNum;
+     this.listData.classList.list = new Array();
+      for(let i = 0;i<classInfos.length;i++){
+        let obj = {
+            id : classInfos[i].id,
+            img : imgs[i],
+            title : classInfos[i].title,
+            intro : classInfos[i].textIntro,
+            price : classInfos[i].price,
+            time : classInfos[i].suggestTime,
+            teacherName : userInfos[i].username,
+            score : 3.9,
+        }
+        if(obj.img === "no picture") obj.img ="ClassDefault.jpeg";
+      this.listData.classList.list.push(obj);
+      }      
+    })
+    },
+    SortChange(val){
+      this.classSort = val;
+      this.listData.classList.page = 1;
+     if(val == 0){       
+        this.GetClass();      
+     }
+     else{
+        this.SortClassByVal()
+     }      
+      
     }
   },
   created() {
     this.UpData()
+  },
+  computed:{
+    getClassPage(){
+      return this.listData.classList.page;
+    }
   },
   watch: {
     $route: {
@@ -247,7 +243,19 @@ export default {
               //深度监听，同时也可监听到param参数变化
         },
         deep: true,
-    }
+    },
+    'listData.classList.page':{
+      handler: function(val,oldval){
+        if(this.classSort == 0){
+           this.GetClass();
+        }
+        else{
+          this.SortClassByVal()
+        }
+        backTop();
+      },
+      deep:true
+    } 
   }    
  
 

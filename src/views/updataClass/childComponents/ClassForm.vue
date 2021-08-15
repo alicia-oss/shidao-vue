@@ -45,7 +45,7 @@
 
 <script>
 import PicsUpload from '../../../components/common/upload/PicsUpload.vue'
-import{ submit } from'../../../network/createClass'
+import{ submitUpdate,getPageData } from'../../../network/updateClass'
 export default {
   name: "ClassForm",
   data(){
@@ -90,7 +90,7 @@ export default {
     }, 
   },
   created(){
-    
+    getPageData()
 
   }
     

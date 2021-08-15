@@ -4,9 +4,9 @@
      <el-radio-group  v-model="sorts" >
     <el-radio :label="0">综合排序</el-radio>
     <el-radio :label="1">价格升序</el-radio>
-    <el-radio :label="2">价格降序</el-radio>
+    <el-radio :label="2" disabled>价格降序</el-radio>
     <el-radio :label="3">时长升序</el-radio>
-    <el-radio :label="4">时长降序</el-radio>
+    <el-radio :label="4" disabled>时长降序</el-radio>
   </el-radio-group>
     <big-class-card class="list-item" v-for="item in data.classList.list" :data="item"></big-class-card>
     <el-pagination class="page"
@@ -51,8 +51,16 @@ export default {
   methods:{
     ClassPageChange(currentPage){
       this.data.classList.page = currentPage;
+    },
+  },
+  watch:{
+    sorts:{
+      handler:function(val,oldval){
+      this.$emit('sortChange',val);
+      }
     }
   }
+  
 
 }
 </script>

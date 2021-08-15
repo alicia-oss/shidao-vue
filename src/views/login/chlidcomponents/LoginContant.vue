@@ -16,8 +16,8 @@ export default {
   name: 'LoginContant',
   data() {
     return{
-      useraccount:"133435433",
-      password:"76890232szx",
+      useraccount:"111",
+      password:"123",
       load:false
     }
   },
@@ -34,12 +34,11 @@ export default {
              login: 1,
             userId: data.id,
             userName: data.username,
-            userImg: "admin.jpg",
+            userImg: data.graghId,
             collection_class: data.collection_class,
             collection_question: data.collection_question   
           })
-          let timer = 3;
-         
+          let timer = 2;
           this.$message({
             type:"success",
             message:`登录成功，${timer}s后跳转!`

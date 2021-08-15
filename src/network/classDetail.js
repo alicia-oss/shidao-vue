@@ -1,6 +1,6 @@
 import { request } from './request';
 
-export function GetData(classInfo_id) {
+export function GetClassData(classInfo_id) {
     return request({
         url: "/showClassInfo",
         method: "get",
